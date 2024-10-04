@@ -1,1 +1,26 @@
-This repository contains dataset for the expense prediction model and the .ipynb file that contains the code of the model.
+This repository contains dataset for the expense prediction model and the .ipynb file that contains the code of the model
+Inital dataset contains around 200 columns containing the monthly expenses for the respective reason.
+The data is preprocessed by reducing the number of categories as following:
+1.Clothing	
+2.Electronical appliances
+3.Mobile electronics	
+4.Fashion accessories	
+5.Groceries	
+6.Miscellaneous	
+7.Processed foods	
+8.Stationary	
+9.Toiletries	
+10.Toys
+11.Medicines
+12.Hygiene products
+13.Home appliances
+14.Household essentials
+
+The first processed data has a schema of :
+1.Gender
+2.Age
+3.Type
+4.Month
+5.Year
+6.Expense
+
