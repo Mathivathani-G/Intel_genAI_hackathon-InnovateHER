@@ -17,10 +17,6 @@ The data is preprocessed by reducing the number of categories as following:
 14.Household essentials
 
 The first processed data has a schema of :
-1.Gender
-2.Age
-3.Type
-4.Month
-5.Year
-6.Expense
+Gender,Age,Type,Month,Year,Expense
+
 
