@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Recommendation System</title>
+    <link rel="stylesheet" href="styles2.css"> <!-- Link to external CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 text-center">Investment Recommendation System</h1>
+        <form action="/predict" method="POST" class="mt-4 p-4 form-container">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="individual_goal">Individual Goal</label>
+                <select class="form-control" id="individual_goal" name="individual_goal" required>
+                    <option value="saving for retirement">Saving for Retirement</option>
+                    <option value="buying a house">Buying a House</option>
+                    <option value="starting a business">Starting a Business</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="risk_tolerance">Risk Tolerance</label>
+                <select class="form-control" id="risk_tolerance" name="risk_tolerance" required>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="financial_literacy">Financial Literacy (0-10)</label>
+                <input type="number" step="0.1" class="form-control" id="financial_literacy" name="financial_literacy" placeholder="Enter your financial literacy score" required>
+            </div>
+
+            <!-- Financial Literacy Guide Table -->
+            <div class="table-responsive mt-3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Financial Literacy Score</th>
+                            <th>Understanding Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-2</td>
+                            <td>Basic knowledge about income but limited understanding of savings or investments</td>
+                        </tr>
+                        <tr>
+                            <td>3-4</td>
+                            <td>Understands savings and basic budgeting but not familiar with advanced financial planning like tax optimizations </td>
+                        </tr>
+                        <tr>
+                            <td>5-6</td>
+                            <td>Has knowledge of savings, loans, and basic investment options like fixed deposits</td>
+                        </tr>
+                        <tr>
+                            <td>7-8</td>
+                            <td>Familiar with investment strategies, mutual funds, and tax planning</td>
+                        </tr>
+                        <tr>
+                            <td>9-10</td>
+                            <td>Advanced knowledge of stock markets, bonds, portfolio management, and financial risk management</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Get Recommendation</button>
+        </form>
+
+        <!-- Display the result -->
+        {% if prediction_text %}
+        <div class="alert alert-info mt-4">
+            <strong>{{ prediction_text }}</strong>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
