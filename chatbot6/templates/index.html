@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            background-color: #FFFFF0; /* Ivory color */
+            font-family: Arial, sans-serif;
+            color: black;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 80%;
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        button {
+            background-color: #28a745; /* Green color */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+        .response {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #007BFF;
+            border-radius: 5px;
+            display: inline-block;
+            width: 80%;
+            background-color: #f0f8ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <textarea name="user_input" placeholder="Type your message here..."></textarea><br>
+        <button type="submit">Send</button>
+        <button type="submit" name="show" value="show">Show</button><br>
+        <input type="file" name="upload_file" accept=".xlsx">
+        <button type="submit">Upload</button>
+    </form>
+    <div class="response">
+        <strong>Bot Response:</strong>
+        <p>{{ bot_response }}</p>
+    </div>
+</body>
+</html>
