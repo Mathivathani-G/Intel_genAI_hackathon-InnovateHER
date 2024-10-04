@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Allocation</title>
+  <style>
+    /* General body styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Container styling */
+    .container {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 400px;
+      text-align: center;
+    }
+
+    /* Header styling */
+    header h1 {
+      color: #333333;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    /* Form section styling */
+    #budget-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Input field styling */
+    input[type="number"] {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #cccccc;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    /* Button styling */
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Modal for alerts */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    }
+
+    .modal-content {
+      background-color: #ffffff;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 40%;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .close-btn {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close-btn:hover,
+    .close-btn:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .modal-header, .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-footer {
+      padding-top: 20px;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      color: white;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+    }
+
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Budget Allocation</h1>
+    </header>
+
+    <section id="budget-form">
+      <form id="budgetForm" action="/allocation_result" method="POST">
+        <label for="income">Enter Your Total Income:</label>
+        <input type="number" id="income" name="income" required>
+
+        <label for="total_budget">Enter Your Total Budget:</label>
+        <input type="number" id="total_budget" name="total_budget" required>
+
+        <button type="submit">Allocate Budget</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Modal for the first alert -->
+  <div id="alertModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Alert</h2>
+        <span class="close-btn" id="closeBtn">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>The budget should not be equal to the income. Please adjust your budget to avoid allocating the entire income.</p>
+      </div>
+      <div class="modal-footer">
+        <button id="okBtn" class="btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for the second alert (high budget warning) -->
+  <div id="highBudgetModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>High Budget Warning</h2>
+        <span class="close-btn" id="closeBtn2">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Your budget is significantly high for your income. Do you want to continue with this budget, or reallocate?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="continueBtn" class="btn-primary">Continue</button>
+        <button id="reallocateBtn" class="btn-secondary">Reallocate Budget</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("budgetForm").addEventListener("submit", function(event) {
+      // Get the income and budget values
+      var income = parseFloat(document.getElementById("income").value);
+      var budget = parseFloat(document.getElementById("total_budget").value);
+
+      // Condition 1: Check if budget equals income
+      if (budget === income) {
+        event.preventDefault(); // Prevent form submission
+        document.getElementById("alertModal").style.display = "block";
+        return; // Exit after showing the first alert
+      }
+
+      // Condition 2: Check if budget is higher than 70% of income
+      if (budget >= income - 0.3 * income) {
+        event.preventDefault(); // Prevent form submission
+        document.getElementById("highBudgetModal").style.display = "block";
+        return; // Exit after showing the second alert
+      }
+    });
+
+    // Close the first modal
+    document.getElementById("okBtn").onclick = function() {
+      document.getElementById("alertModal").style.display = "none";
+    };
+
+    document.getElementById("closeBtn").onclick = function() {
+      document.getElementById("alertModal").style.display = "none";
+    };
+
+    // Close the second modal when clicking on the "Reallocate Budget" button and clear input
+    document.getElementById("reallocateBtn").onclick = function() {
+      document.getElementById("highBudgetModal").style.display = "none";
+      document.getElementById("income").value = ""; // Clear the income input
+      document.getElementById("total_budget").value = ""; // Clear the budget input
+    };
+
+    // Proceed with form submission when clicking on "Continue" button
+    document.getElementById("continueBtn").onclick = function() {
+      document.getElementById("highBudgetModal").style.display = "none";
+      document.getElementById("budgetForm").submit(); // Continue with form submission
+    };
+
+    document.getElementById("closeBtn2").onclick = function() {
+      document.getElementById("highBudgetModal").style.display = "none";
+    };
+
+    // Close the modals if the user clicks outside of them
+    window.onclick = function(event) {
+      if (event.target === document.getElementById("alertModal")) {
+        document.getElementById("alertModal").style.display = "none";
+      }
+      if (event.target === document.getElementById("highBudgetModal")) {
+        document.getElementById("highBudgetModal").style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>

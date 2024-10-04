@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Dashboard</title>
+  <link rel="stylesheet" href="styles1.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding-top: 30px;
+      min-height: 70px;
+      border-bottom: #77b748 3px solid;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      text-align: center;
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #77b748;
+    }
+
+    section {
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    #goals {
+      background: linear-gradient(to right, #77b748, #a8d8a1);
+      color: #fff;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    #goals h2 {
+      margin: 0;
+    }
+
+    #goal-description {
+      padding: 10px 0;
+      font-size: 1.1em;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Budget Dashboard</h1>
+      <nav>
+        <ul>
+          <li><a href="#profile">Account/Profile</a></li>
+          <li><a href="/budget_expense">Budget vs Expense</a></li> <!-- Updated link -->
+          <li><a href="index.html">Goals</a></li>
+          <li><a href="#savings">Savings</a></li>
+          <li><a href="#charity">Charity</a></li>
+          <li><a href="#suggestion-box">Suggestion Box</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="budget-expense">
+      <h2>Budget vs Expense</h2>
+      <canvas id="budgetExpenseChart"></canvas>
+    </section>
+
+    <section id="goals" onclick="location.href='index.html'">
+      <h2>Goals</h2>
+      <div id="goal-description">
+        <p>Set your financial goals here to track your progress and stay motivated. Whether it's saving for a vacation, a new car, or a home, our dashboard helps you stay on track!</p>
+      </div>
+    </section>
+
+    <section id="savings">
+      <h2>Check Savings</h2>
+      <p>Your total savings are...</p>
+    </section>
+
+    <section id="charity">
+      <h2>Charity</h2>
+      <p>Charity information goes here...</p>
+    </section>
+
+    <section id="suggestion-box">
+      <h2>Suggestion Box</h2>
+      <p>We suggest investing in gold this quarter based on the latest trends...</p>
+    </section>
+
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

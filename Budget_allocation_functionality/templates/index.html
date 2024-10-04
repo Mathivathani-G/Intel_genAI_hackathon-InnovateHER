@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Prediction</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Predicted Expenses by Category</h1>
+    <canvas id="expenseChart" width="200" height="100"></canvas>
+
+    <script>
+        async function fetchExpenses(month) {
+            const response = await fetch(`/predict/${month}`);
+            return await response.json();
+        }
+
+        async function displayChart(month) {
+            const data = await fetchExpenses(month);
+            const ctx = document.getElementById('expenseChart').getContext('2d');
+
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(data.type_expenses),
+                    datasets: [{
+                        label: 'Predicted Expenses',
+                        data: Object.values(data.type_expenses),
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        displayChart(9); // You can change the month here
+    </script>
+</body>
+</html>
