@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Dashboard</title>
+  <link rel="stylesheet" href="styles1.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f0f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px; /* Max width for larger screens */
+      margin: auto;
+      overflow: hidden;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding-top: 30px;
+      min-height: 70px;
+      border-bottom: #77b748 3px solid;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      text-align: center;
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #77b748; /* Change color on hover */
+    }
+
+    section {
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s ease;
+      cursor: pointer; /* Change cursor to pointer */
+    }
+
+    section:hover {
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Section specific styles */
+    .goal-section {
+      background: linear-gradient(to right, #77b748, #a8d8a1); /* Colorful gradient background */
+      color: #fff;
+    }
+
+    .goal-section h2 {
+      margin: 0;
+    }
+
+    .goal-description {
+      padding: 10px 0;
+      font-size: 1.1em;
+    }
+
+    .savings-section {
+      background-color: #e0f7fa; /* Light blue for savings section */
+      color: #333;
+    }
+
+    .charity-section {
+      background-color: #ffe0b2; /* Light orange for charity section */
+      color: #333;
+    }
+
+    .suggestion-section {
+      background-color: #ffe0e0; /* Light red for suggestion box */
+      color: #333;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Budget Dashboard</h1>
+      <nav>
+        <ul>
+          <li><a href="#profile">Account/Profile</a></li>
+          <li><a href="/budget_expense">Budget vs Expense</a></li>
+          <li><a href="index.html">Goals</a></li>
+          <li><a href="/suggestion">Suggestion Box</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="budget-expense" >
+      <form id="budgetForm" action="/budget_expense" method="POST">
+      <h2>Budget vs Expense</h2>
+      <canvas id="budgetExpenseChart"></canvas>
+      </form>
+    </section>
+
+    <section id="goals" class="goal-section" onclick="location.href='index.html'"> 
+      
+      <h2>Goals</h2>
+      <div class="goal-description">
+        <p>Set your financial goals here to track your progress and stay motivated. Whether it's saving for a vacation, a new car, or a home, our dashboard helps you stay on track!</p>
+      </div>
+
+    </section>
+
+    <section id="suggestion-box" class="suggestion-section" onclick="location.href='suggestionmodelindex.html'">
+      <form id="suggestionForm" action="/suggestion" method="POST">
+      <h2>Suggestion Box</h2>
+      <p>We suggest investing in gold this quarter based on the latest trends...</p>
+      </form>
+    </section>
+
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

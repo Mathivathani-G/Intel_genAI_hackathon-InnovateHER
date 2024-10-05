@@ -1,0 +1,99 @@
+/* General Body Styling */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for the form */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: box-shadow 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Title Styling */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Form Container Styling */
+.form-container {
+    background-color: #f9f9fb;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Form Group Labels */
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Inputs Styling */
+.form-control {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #77b748;
+    box-shadow: none;
+}
+
+/* Button Styling */
+button[type="submit"] {
+    background-color: #77b748;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #5c9d3c;
+    cursor: pointer;
+}
+
+/* Alert Styling */
+.alert {
+    margin-top: 20px;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 1.2rem;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    button[type="submit"] {
+        font-size: 1rem;
+    }
+}
