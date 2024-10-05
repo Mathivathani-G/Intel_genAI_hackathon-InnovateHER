@@ -42,54 +42,30 @@ Since this preprocessed_data1.xlsx file has only 350 records which is insufficie
 Using this range we extrapolate the dataset by random imputation of values within the respective ranges.
 
 AI Model selection and expense Prediction:
-Extensive experimentation was conducted with various machine learning algorithms to 
-find the best predictive model. The dataset was tested with models like K-Nearest 
-Neighbours (KNN), Linear Regression, Random Forest, Support Vector Regression (SVR), 
-and Long Short-Term Memory (LSTM), with each model's accuracy in predicting expenses
+Extensive experimentation was conducted with various machine learning algorithms to  find the best predictive model. The dataset was tested with models like K-Nearest 
+Neighbours (KNN), Linear Regression, Random Forest, Support Vector Regression (SVR),  and Long Short-Term Memory (LSTM), with each model's accuracy in predicting expenses
 carefully evaluated.
 
-Linear Regression stood out as the most accurate model, delivering an impressive 
-accuracy of 88.13%. It was implemented using Intel OneAPI’s Sklearnex package, known
-for improving performance and scalability in machine learning tasks. After selecting 
-the best model, it was prepared for deployment by pickling, ensuring it seamlessly
+Linear Regression stood out as the most accurate model, delivering an impressive accuracy of 88.13%. It was implemented using Intel OneAPI’s Sklearnex package, known
+for improving performance and scalability in machine learning tasks. After selecting the best model, it was prepared for deployment by pickling, ensuring it seamlessly
 integrated with the platform's predictive features.
 
 
 Deployment in Web-Interface
-For deployment, a website serves as one of the best platforms,
-making user interaction simple and accessible. NextGen Budgeting offers an 
-intuitive and visually appealing dashboard designed to enhance user experience.
+NextGen Budgeting offers an intuitive and visually appealing dashboard for simple and accessible user interaction.
 
-Budget vs Expense: This section allows users to input their overall budget. 
-Through the predictive model, a detailed breakdown of budget categories and allocated 
-amounts for each is displayed, enabling users to efficiently manage and plan
-their spending.
+💰 Budget vs Expense: Input your overall budget and view a detailed breakdown of spending categories to manage finances effectively.
 
-Goals: Users can select from a range of financial goals and
-input their desired budget. The system calculates and displays the estimated time 
-required to achieve these goals based on their inputs, providing a clear path towards
-financial objectives.
+🎯 Goals: Choose financial goals and input your budget; the system estimates the time needed to achieve them.
 
-Savings: A straightforward calculation is performed where the user's income is 
-compared against total predicted expenses. The remainder is displayed as the potential
-savings amount, giving users a transparent view of their financial situation.
+💵 Savings: Compare income against total predicted expenses to reveal potential savings, providing a clear financial overview.
 
-Chatbot: The conversational chatbot helps users track their expenses in an engaging
-manner. By entering their spending information, users can receive personalized 
-financial tips and advice, keeping them motivated to save and stay on track with 
-their goals.
+🤖 Chatbot: Engage with a conversational chatbot that tracks expenses and offers personalized financial tips to keep users motivated.
 
-Charity: This feature allows users to allocate a portion of their budget for 
-charitable contributions, making financial planning more purposeful by incorporating
-social responsibility.
+❤️ Charity: Allocate a portion of your budget for charitable contributions, integrating social responsibility into financial planning.
 
-Suggestions: This feature provides personalized financial insights and investment recommendations.
-By considering the user's financial knowledge, ideas, and interests, the platform 
-suggests investments that align with their preferences and goals, empowering users 
-to make informed decisions about growing their wealth.
+📈 Suggestions: Receive personalized financial insights and investment recommendations tailored to your knowledge and interests, empowering informed decision-making.
 
 Conclusion:
-NextGen Budgeting revolutionizes personal finance management by harnessing the
-power of AI to provide personalized budgeting, expense tracking, and insightful
-recommendations. This innovative platform empowers users to take control of their 
-financial well-being and achieve their savings goals with ease.
+NextGen Budgeting revolutionizes personal finance management by harnessing thepower of AI to provide personalized budgeting, expense tracking, and insightful
+recommendations. This innovative platform empowers users to take control of their financial well-being and achieve their savings goals with ease.
