@@ -1,3 +1,9 @@
+Project Idea: NextGen Budgeting
+NextGen Budgeting is a user-friendly, AI-powered platform designed to predict and optimize 
+personal budgets. Utilizing advanced AI models such as Linear Regression and Hugging Face, the
+tool forecasts the next month’s budget based on users' past spending patterns and saving goals.
+It automates budgeting, provides real-time expense tracking, and offers personalized savings tips to help users improve financial management.
+
 This repository contains dataset for the expense prediction model and the .ipynb file that contains the code of the model
 Inital dataset contains around 200 columns containing the monthly expenses for the respective reason.
 The data is preprocessed by reducing the number of categories as following:
@@ -9,4 +15,14 @@ Gender,Age,Type,Month,Year,Expense
 Since this preprocessed_data1.xlsx file has only 350 records which is insufficient for analysis , we obtain the range of expenses for each category.
 Using this range we exptrapolate the dataset by random imputation of values within the respective ranges.
 
+Extensive experimentation was conducted with various machine learning algorithms to 
+find the best predictive model. The dataset was tested with models like K-Nearest 
+Neighbors (KNN), Linear Regression, Random Forest, Support Vector Regression (SVR), 
+and Long Short-Term Memory (LSTM), with each model's accuracy in predicting expenses
+carefully evaluated.
 
+Linear Regression stood out as the most accurate model, delivering an impressive 
+accuracy of 88.13%. It was implemented using Intel OneAPI’s Sklearnex package, known
+for improving performance and scalability in machine learning tasks. After selecting 
+the best model, it was prepared for deployment by pickling, ensuring it seamlessly
+integrated with the platform's predictive features.
