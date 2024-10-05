@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Setting</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="bg-dark text-white text-center py-3 mb-4">
+            <h1>Set Your Goal</h1>
+            <a href="index.html" class="btn btn-light">Back to Dashboard</a>
+        </header>
+
+        <!-- Goal Setting Form -->
+        <div class="goal-container p-4 bg-light rounded shadow-sm">
+            <h2 class="text-center" id="goalTitle">Your Goal: </h2>
+
+            <form id="goalForm" class="mt-4">
+                <!-- Goal Amount -->
+                <div class="mb-3">
+                    <label for="goalAmount" class="form-label">Goal Amount (in INR)</label>
+                    <input type="number" class="form-control" id="goalAmount" placeholder="Enter amount">
+                </div>
+
+                <!-- Time Period -->
+                <div class="mb-3">
+                    <label for="timePeriod" class="form-label">Time to Achieve (in years)</label>
+                    <input type="number" class="form-control" id="timePeriod" placeholder="Enter number of years">
+                </div>
+
+                <!-- Salary -->
+                <div class="mb-3">
+                    <label for="salary" class="form-label">Your Monthly Salary (in INR)</label>
+                    <input type="number" class="form-control" id="salary" placeholder="Enter your monthly salary">
+                </div>
+
+                <button type="button" class="btn btn-success btn-block" onclick="calculateGoal()">Calculate</button>
+            </form>
+
+            <!-- Calculation Results -->
+            <div id="goalResult" class="mt-4 p-3 text-center bg-success text-white rounded"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <!-- Custom JS for Goals -->
+    <script src="goal.js"></script>
+</body>
+</html>
